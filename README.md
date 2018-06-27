@@ -9,6 +9,7 @@ The generators included in this module can be directly used from [yeoman](http:/
 ## Table of contents
 
 * [Installation](#installation)
+* [Usage](#usage)
 
 ## Installation
 
