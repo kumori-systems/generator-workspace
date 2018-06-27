@@ -1,2 +1,0 @@
-= Yeoman generator for ExpressJS based Kumori component
-Josep Maria Bernabé Gisbert<jbgisbert@kumori.systems>
