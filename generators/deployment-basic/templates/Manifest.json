@@ -1,0 +1,46 @@
+{
+  "spec": "http://eslap.cloud/manifest/deployment/1_0_0",
+  "servicename": "eslap://<%= serviceDomain %>/services/<%= serviceName %>/<%= serviceVersion %>",
+  "nickname": "<%= name %>",
+  "configuration": {
+    "resources": {
+      <% resources.forEach(function(resource, index) { %>
+        <% if (index < (resources.length - 1)) { %>
+          "<%- resource.name %>": <%- resource.value %>,
+        <% } else { %>
+          "<%- resource.name %>": <%- resource.value %>
+        <% } %>
+      <% }) %>
+    },
+    "parameters": {
+      <% parameters.forEach(function(parameter, index) { %>
+        <% if (index < (parameters.length - 1)) { %>
+          "<%- parameter.name %>": <%- parameter.value %>,
+        <% } else { %>
+          "<%- parameter.name %>": <%- parameter.value %>
+        <% } %>
+      <% }) %>
+    }
+  },
+  "roles": {
+    <% roles.forEach(function(role, index) { %>
+      "<%- role.name %>": {
+        "resources": {
+          "__instances": 1,
+          "__maxinstances": 3,
+          "__cpu": 1,
+          "__memory": 1,
+          "__ioperf": 1,
+          "__iopsintensive": false,
+          "__bandwidth": 10,
+          "__resilience": 1
+        }
+      <% if (index < (roles.length - 1)) { %>
+      },
+      <% } else { %>
+      }
+      <% } %>
+    <% }) %>
+
+  }
+}

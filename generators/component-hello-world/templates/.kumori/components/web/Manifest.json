@@ -1,0 +1,36 @@
+{
+  "spec": "http://eslap.cloud/manifest/component/1_0_0",
+  "name": "eslap://kumori.systems/components/web/0_0_1",
+  "runtime": "eslap://eslap.cloud/runtime/legacy/2_0_0",
+  "code": "web-code-blob",
+  "channels": {
+    "provides": [{
+      "name": "http",
+      "type": "eslap://eslap.cloud/channel/reply/1_0_0",
+      "protocol": "TBD"
+    }],
+    "requires": []
+  },
+  "configuration":{
+    "resources": [],
+    "parameters": [{
+      "name": "domain",
+      "type": "eslap://eslap.cloud/parameter/json/1_0_0",
+      "default": {},
+      "_description": "Dictionary to configure a custom domain and enable https protocol"
+    },{
+      "name": "entrypoint",
+      "type": "eslap://eslap.cloud/parameter/json/1_0_0",
+      "default": {},
+      "_description": "Dictionary to configure how the legacy server is started and accessed"
+    },{
+      "name": "parameters",
+      "type": "eslap://eslap.cloud/parameter/json/1_0_0",
+      "default": {},
+      "_description": "Dictionary with the legacy server parameters, which will be exposed as environment variables"
+    }]
+  },
+  "profile": {
+    "threadability": "*"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@kumori/generator-workspace",
+  "version": "0.0.1",
+  "description": "Yo generator for Kumori platform",
+  "author": "Josep Maria Bernabé Gisbert",
+  "license": "ISC",
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "main": "generators/app/index.js",
+  "dependencies": {
+    "yeoman-generator": "^2.0.3"
+  }
+}

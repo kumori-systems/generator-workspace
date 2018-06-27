@@ -1,0 +1,7 @@
+{
+    "spec": "eslap://eslap.cloud/resource/vhost/1_0_0",
+    "name": "eslap://<%= domain %>/resources/vhost/<%= name %>",
+    "parameters": {
+        "vhost": "<%= name %>.<%= domain %>"
+    }
+}
