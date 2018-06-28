@@ -2,25 +2,25 @@
     "working-stamp": "localstamp",
     "domain": "domain.com",
     "component": {
-        "template": "kumori-workspace:component-javascript"
+        "template": " @kumori/workspace:component-javascript"
     },
     "deployment": {
-        "template": "kumori-workspace:deployment-basic"
+        "template": "@kumori/workspace:deployment-basic"
     },
     "project": {
-        "template": "kumori-workspace:project-hello-world"
+        "template": "@kumori/workspace:project-hello-world"
     },
     "resource": {
-        "template": "kumori-workspace:resource-vhost"
+        "template": "@kumori/workspace:resource-vhost"
     },
     "runtime": {
-        "template": "kumori-workspace:runtime-basic",
+        "template": "@kumori/workspace:runtime-basic",
         "parent": "eslap://eslap.cloud/runtime/native/2_0_0",
         "folder": "/eslap/component",
         "entrypoint": "/eslap/runtime-agent/scripts/start-runtime-agent.sh"
     },
     "service": {
-        "template": "kumori-workspace:service-basic"
+        "template": "@kumori/workspace:service-basic"
     },
     "stamps": {
         "localstamp": {
