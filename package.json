@@ -1,9 +1,13 @@
 {
   "name": "@kumori/generator-workspace",
   "version": "0.0.1",
-  "description": "Yo generator for Kumori platform",
-  "author": "Josep Maria Bernabé Gisbert",
-  "license": "ISC",
+  "description": "Yeoman generator for Kumori platform",
+  "author": "Kumori Systems <info@kumori.systems>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kumori-systems/generator-workspace.git"
+  },
+  "license": "MIT",
   "files": [
     "generators"
   ],
