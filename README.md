@@ -63,7 +63,7 @@ Or, much more simple, you can use the `kumori` CLI:
         create components/kumori.systems/hello/test/sample.jest.js
     Component eslap://kumori.systems/components/hello/0_0_1 created in ./components/kumori.systems/hello
 
-Or, even more simple
+Or, even more simply
 
     $ kumori component add hello
     Adding component hello in kumori.systems using template @kumori/workspace:component-javascript
