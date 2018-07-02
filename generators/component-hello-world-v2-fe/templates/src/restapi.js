@@ -18,7 +18,6 @@ const q          = require('q');
 //
 // Data persistency (in-memory) is provided by dataStorage role, which is
 // reachable through dataclientChannel channel.
-
 class RestApi {
 
 
@@ -36,8 +35,6 @@ class RestApi {
     return q.Promise((resolve, reject) => {
       const expressApp = this._createExpressApp();
       this.httpServer = http.createServer(expressApp);
-      // http-message instances can make use of a Winston-like logger
-      this.httpServer.logger = this.logger;
 
       this.httpServer.on('error', err => {
         this.logger.error(`RestApi.start onError ${err.stack}`);
@@ -140,42 +137,6 @@ class RestApi {
   //    sent directly, they must be serialized).
   // - DynamicChannels: (optional) array of dynamic channels.
   //    Not used in this example.
-  // - Result: array of arrays, where:
-  //     - result[0][0] : status - **OBSOLETE** Not to be used.
-  //     - result[0][1..] : array of segments received in the reply.
-  //        Segments are buffers.
-  //     - result[1] : (optional) array of dynamic channels received in the
-  //        reply. Sin uso en este ejemplo.
-  // - Err: Error object related to the rejected promise.
-  // As an example:
-  //  channel.sendRequest([value1, value2, value3], [dynChannel1, dynChannel2])
-  //  .then ([[status, result1, result2], [dynChannel3]]) -> ...
-  //  .fail (err) -> ...
-
-  _send(message, response) {
-    this.dataclientChannel.sendRequest([message])
-    .then(([[status_DEPRECATED, reply], dynamicChannels]) => {
-      reply = JSON.parse(reply.toString()); // Received Buffer -> String -> JSON
-
-      response.status(200).json(reply);
-    }).fail(err => {
-      this.logger.warn(`RestApi:_send promise rejected ${err.message}`);
-
-      response.status(500).json({ error: err.message });
-    });
-  }
-
-  // Sending the request to the dataStorage role.
-  //
-  // It uses a Request channel:
-  //     channel.sendRequest(message, dynamicChannels)
-  //     .then (result) -> ...
-  //     .fail (err) -> ...
-  // - Message: array of segments to be sent.
-  //    Segments are either strings or buffers (therefore, objects cannot be
-  //    sent directly, they must be serialized).
-  // - DynamicChannels: (optional) array of dynamic channels.
-  //    Not used in this example.
   // - Result: Object with following keys:
   //     - message: array of segments received in the reply.
   //        Segments are buffers.
@@ -188,7 +149,6 @@ class RestApi {
   //    // result: { message: [value1, value2, value3],
   //    //            dynamicChannels: [dynChannel1, dynChannel2] }
   //  .fail (err) -> ...
-
   _send(message, response) {
     this.dataclientChannel.sendRequest([message])
     .then(result => {

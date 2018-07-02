@@ -9,7 +9,7 @@
       {
         "name": "dataapi",
         "type": "eslap://eslap.cloud/channel/reply/1_0_0",
-        "protocol": "TBD"
+        "protocol": "eslap://eslap.cloud/protocol/message/storage/1_0_0"
       }
     ]
   },

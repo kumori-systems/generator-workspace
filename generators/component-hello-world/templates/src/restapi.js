@@ -16,7 +16,6 @@ const q          = require('q');
 // On /api/sayhello, we reply with 'Hello world!' message.
 // On /api/echo, we reply with message received in request msg parameter.
 // On any other path, we reply with 404 Not Found.
-
 class RestApi {
 
 
@@ -33,8 +32,6 @@ class RestApi {
     return q.Promise((resolve, reject) => {
       const expressApp = this._createExpressApp();
       this.httpServer = http.createServer(expressApp);
-      // http-message instances can make use of a Winston-like logger
-      this.httpServer.logger = this.logger;
 
       this.httpServer.on('error', err => {
         this.logger.error(`RestApi.start onError ${err.stack}`);

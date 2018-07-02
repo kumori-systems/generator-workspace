@@ -8,7 +8,6 @@ const winstonLogzio = require('winston-logzio');
 //
 // Constructor, run, shutdown and configure methods are invoked by Kumori PaaS,
 // managing instance lifecycle.
-
 class DataStorage extends Component {
 
 
@@ -40,7 +39,6 @@ class DataStorage extends Component {
   //    Keys are channel names, values are channel objects.
   // - offerings: dictionary of the channels offered by the component, through
   //    which you can answer requests from other roles or services.
-
   constructor(runtime, role, iid, incnum, localData, resources,
                 parameters, dependencies, offerings ) {
 
@@ -99,7 +97,6 @@ class DataStorage extends Component {
 
   // Method invoked by Kumori PaaS to start instance execution.
   // Not special to do in this example.
-
   run() {
     this.logger.info('DataStorage.run');
     super.run();
@@ -111,7 +108,6 @@ class DataStorage extends Component {
   // persisting its state if needed. If the instance doesn't gracefully
   // shutdown, it will be killed, so be sure to fill this method.
   // Not special to do in this example, as we store data in memory.
-
   shutdown() {
     this.logger.info('DataStorage.shutdown');
     super.shutdown();
@@ -120,7 +116,6 @@ class DataStorage extends Component {
 
   // Method invoked by Kumori PaaS to modify instance configuration.
   // Not really used in this example.
-
   reconfig(parameters) {
     this.logger.info('DataStorage.reconfig');
     super.reconfig(parameters);
@@ -143,7 +138,6 @@ class DataStorage extends Component {
   // - Resolved with an array of buffers.
   // or
   // - Rejected with an error.
-
   _handleDataapiRequest(message, dynamicChannels) {
     this.logger.info('DataStorage._handleRequest');
 

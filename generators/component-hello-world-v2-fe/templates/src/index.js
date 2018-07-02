@@ -9,7 +9,6 @@ const winstonLogzio = require('winston-logzio');
 //
 // Constructor, run, shutdown and configure methods are invoked by Kumori PaaS,
 // managing instance lifecycle.
-
 class Fe extends Component {
 
 
@@ -41,7 +40,6 @@ class Fe extends Component {
   //    Keys are channel names, values are channel objects.
   // - offerings: dictionary of the channels offered by the component, through
   //    which you can answer requests from other roles or services.
-
   constructor(runtime, role, iid, incnum, localData, resources,
                 parameters, dependencies, offerings ) {
 
@@ -108,7 +106,6 @@ class Fe extends Component {
 
 
   // Method invoked by Kumori PaaS to start instance execution.
-
   run() {
     this.logger.info('Fe.run');
     super.run();
@@ -131,7 +128,6 @@ class Fe extends Component {
   // shutdown. Instance should take necessary actions in this situation,
   // persisting its state if needed. If the instance doesn't gracefully
   // shutdown, it will be killed, so be sure to fill this method.
-
   shutdown() {
     this.logger.info('Fe.shutdown');
     this.restapi.stop()
@@ -144,7 +140,6 @@ class Fe extends Component {
 
   // Method invoked by Kumori PaaS to modify instance configuration.
   // Not really used in this example.
-
   reconfig(parameters) {
     this.logger.info('Fe.reconfig');
 
