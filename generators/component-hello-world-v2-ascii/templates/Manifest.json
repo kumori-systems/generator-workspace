@@ -7,7 +7,7 @@
     "requires": [ ],
     "provides": [
       {
-        "name": "dataapi",
+        "name": "asciiapi",
         "type": "eslap://eslap.cloud/channel/reply/1_0_0",
         "protocol": "eslap://eslap.cloud/protocol/message/storage/1_0_0"
       }

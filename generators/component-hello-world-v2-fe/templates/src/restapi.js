@@ -3,6 +3,9 @@ const url        = require('url');
 const http       = require('http-message');
 const express    = require('express');
 const q          = require('q');
+const fs         = require('fs');
+const multer     = require('multer');
+const upload     = multer({dest: 'uploads/'});
 
 
 // REST API v2 implementation.
@@ -18,10 +21,12 @@ const q          = require('q');
 //
 // Data persistency (in-memory) is provided by dataStorage role, which is
 // reachable through dataclientChannel channel.
+
 class RestApi {
 
 
-  constructor(entrypointChannel, dataclientChannel, logger) {
+  constructor(id, entrypointChannel, dataclientChannel, logger) {
+    this.id = id;
     this.entrypointChannel = entrypointChannel;
     this.dataclientChannel = dataclientChannel;
     this.logger = logger;
@@ -35,6 +40,8 @@ class RestApi {
     return q.Promise((resolve, reject) => {
       const expressApp = this._createExpressApp();
       this.httpServer = http.createServer(expressApp);
+      // http-message instances can make use of a Winston-like logger
+      this.httpServer.logger = this.logger;
 
       this.httpServer.on('error', err => {
         this.logger.error(`RestApi.start onError ${err.stack}`);
@@ -67,66 +74,31 @@ class RestApi {
     });
   }
 
-
   _createExpressApp() {
     this.logger.info('RestApi._createExpressApp');
 
     const app = express();
+    let staticPath = path.resolve(__dirname, 'static');
+    app.use('/', express.static(staticPath));
 
-    app.use('/', this._getRouter());
-    app.use((req, res, next) => {
-      res.status(404).send('Not Found')
-    });
+    app.get('/image', (req, res) => {
+      const query = url.parse(req.url, true).query;
+      const filename = query != null ? query.filename : undefined;
+      this._processRequest(path.resolve(staticPath,'images',filename), req, res)
+    })
+
+    app.post('/image', upload.single('image'), (req, res) => {
+      this._processRequest(req.file.path, req, res)
+    })
+
+    // app.use((req, res, next) => {
+    //   res.status(404).send('Not Found')
+    // });
 
     return app;
   }
 
-
-  _getRouter() {
-    this.logger.info('RestApi._getRouter');
-
-    const router = express.Router();
-
-    router.get('/read', this._read.bind(this));
-    router.get('/write', this._write.bind(this));
-
-    return router;
-  }
-
-
-  _read(req, res) {
-    const query = url.parse(req.url, true).query;
-    const key = query != null ? query.key : undefined;
-
-    this.logger.info(`RestApi._read key=${key}`);
-
-    const message = JSON.stringify({
-      operation: 'read',
-      key
-    });
-
-    this._send(message, res);
-  }
-
-
-  _write(req, res) {
-    const query = url.parse(req.url, true).query;
-    const key = query != null ? query.key : undefined;
-    const value = query != null ? query.value : undefined;
-
-    this.logger.info(`RestApi._write key=${key} value=${value}`);
-
-    const message = JSON.stringify({
-      operation: 'write',
-      key,
-      value
-    });
-
-    this._send(message, res);
-  }
-
-
-  // Sending the request to the dataStorage role.
+  // Sending the request to the ascii converter role.
   //
   // It uses a Request channel:
   //     channel.sendRequest(message, dynamicChannels)
@@ -149,19 +121,38 @@ class RestApi {
   //    // result: { message: [value1, value2, value3],
   //    //            dynamicChannels: [dynChannel1, dynChannel2] }
   //  .fail (err) -> ...
-  _send(message, response) {
-    this.dataclientChannel.sendRequest([message])
-    .then(result => {
-      //            JSON <- String <- Buffer
-      const reply = JSON.parse(result.message.toString());
+  _processRequest(filepath, req, res) {
+    try {
+      const query = url.parse(req.url, true).query;
+      const key = query != null ? query.key : undefined;
 
-      response.status(200).json(reply);
-    }).fail(err => {
-      this.logger.warn(`RestApi:_send promise rejected ${err.message}`);
+      this.logger.info(`RestApi._convert file=${filepath}`);
 
-      response.status(500).json({ error: err.message });
-    });
+      let data = fs.readFileSync(filepath)
+      const message = new Buffer(data)
+      this.dataclientChannel.sendRequest([message])
+      .then((data) => {
+        let converted = data[0][1].toString();
+        this._reply(converted, res)
+      })
+      .fail((error) => {
+        this._error(error, res)
+      })
+    } catch(error) {
+      this._error(error, res)
+    }
+
   }
+
+  _reply(data, res) {
+    res.send(`<h1>ASCIIART FROM ${this.id}</h1><code><pre>\n${data}\n</pre></code>`);
+    res.end()
+  }
+
+  _error(error, res) {
+    res.status(500).json({ error: (error.message || error) });
+  }
+
 }
 
 

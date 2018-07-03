@@ -74,12 +74,12 @@ module.exports = class extends Generator {
   }
 
   installComponent() {
-    // Data storage component
-    const datastorageOptions = {}
-    datastorageOptions.name = `${this.answers.name}_datastorage`
-    datastorageOptions.domain= this.answers.domain
-    datastorageOptions.destination = path.resolve(this.options.destination, 'components', datastorageOptions.domain, datastorageOptions.name)
-    this.composeWith(require.resolve('../component-hello-world-v2-datastorage'), datastorageOptions)
+    // Ascii converter component
+    const asciiOptions = {}
+    asciiOptions.name = `${this.answers.name}_ascii`
+    asciiOptions.domain= this.answers.domain
+    asciiOptions.destination = path.resolve(this.options.destination, 'components', asciiOptions.domain, asciiOptions.name)
+    this.composeWith(require.resolve('../component-hello-world-v2-ascii'), asciiOptions)
     // Frontend component
     const frontendOptions = {}
     frontendOptions.name = `${this.answers.name}_fe`

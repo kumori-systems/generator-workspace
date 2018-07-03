@@ -1,0 +1,20 @@
+<html>
+    <header>
+        <link rel="stylesheet" href="style/code.css"/>
+        <script src="js/main.js"></script>
+    </header>
+    <body>
+        <div class="jumbotron">
+            <div id="logo" class="asciiart"></div>
+            <h1>ASCIIART Generator</h1>
+            <h2>Select a picture and generate an ASCIIART</h2>
+            <form ref='uploadForm'
+                id='uploadForm'
+                encType="multipart/form-data">
+                    <input type="file" name="image" />
+                    <input type="submit" value="Submit">
+            </form>
+            <div id="output" class="asciiart"></div>
+        </div>
+    </body>
+</html>

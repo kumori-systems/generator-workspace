@@ -8,7 +8,7 @@
       "type": "eslap://eslap.cloud/parameter/json/1_0_0"
     },
     {
-      "name": "<%= name %>-datastorage",
+      "name": "<%= name %>-ascii",
       "type": "eslap://eslap.cloud/parameter/json/1_0_0"
     }]
   },
@@ -17,8 +17,8 @@
     "component": "eslap://<%= domain %>/components/<%= name %>_fe/0_0_1"
   },
   {
-    "name": "<%= name %>-datastorage",
-    "component": "eslap://<%= domain %>/components/<%= name %>_datastorage/0_0_1"
+    "name": "<%= name %>-ascii",
+    "component": "eslap://<%= domain %>/components/<%= name %>_ascii/0_0_1"
   }],
   "channels": {
     "provides": [{
@@ -43,11 +43,11 @@
       "type": "eslap://eslap.cloud/connector/loadbalancer/1_0_0",
       "depended": [{
         "role": "<%= name %>-fe",
-        "endpoint": "dataclient"
+        "endpoint": "asciiclient"
       }],
       "provided": [{
-        "role": "<%= name %>-datastorage",
-        "endpoint": "dataapi"
+        "role": "<%= name %>-ascii",
+        "endpoint": "asciiapi"
       }]
     }
   ]

@@ -85,7 +85,7 @@ const tasks = {
     if (!fs.existsSync('Manifest.json')) {
       // A simple module, We just need to build
       // and move the result to dist
-      yield task.serial(['build'])
+      yield task.serial(['mrproper','build'])
         .source(['build/src/**/*.js'])
         .target('dist')
       return

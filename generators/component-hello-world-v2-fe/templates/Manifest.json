@@ -5,7 +5,7 @@
   "runtime": "eslap://eslap.cloud/runtime/native/2_0_0",
   "channels": {
     "requires": [{
-      "name": "dataclient",
+      "name": "asciiclient",
       "type": "eslap://eslap.cloud/channel/request/1_0_0",
       "protocol": "TBD"
     }],
