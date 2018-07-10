@@ -19,16 +19,16 @@ const upload     = multer({dest: 'uploads/'});
 // - write(key, value)
 // - read(key) - returns value
 //
-// Data persistency (in-memory) is provided by dataStorage role, which is
-// reachable through dataclientChannel channel.
+// Image to ascii convertsion is provided by ascii role, which is
+// reachable through asciiclientChannel channel.
 
 class RestApi {
 
 
-  constructor(id, entrypointChannel, dataclientChannel, logger) {
+  constructor(id, entrypointChannel, asciiclientChannel, logger) {
     this.id = id;
     this.entrypointChannel = entrypointChannel;
-    this.dataclientChannel = dataclientChannel;
+    this.asciiclientChannel = asciiclientChannel;
     this.logger = logger;
     this.logger.info('RestApi.constructor');
   }
@@ -130,7 +130,7 @@ class RestApi {
 
       let data = fs.readFileSync(filepath)
       const message = new Buffer(data)
-      this.dataclientChannel.sendRequest([message])
+      this.asciiclientChannel.sendRequest([message])
       .then((data) => {
         let converted = data[0][1].toString();
         this._reply(converted, res)

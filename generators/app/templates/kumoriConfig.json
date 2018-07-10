@@ -1,5 +1,5 @@
 {
-    "working-stamp": "localstamp",
+    "working-stamp": "baco",
     "domain": "domain.com",
     "component": {
         "template": " @kumori/workspace:component-javascript"

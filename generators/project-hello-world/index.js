@@ -84,5 +84,18 @@ module.exports = class extends Generator {
     serviceOptions.domain= this.answers.domain
     serviceOptions.destination = path.resolve(this.options.destination, 'services', this.answers.domain, this.answers.name)
     this.composeWith(require.resolve('../service-hello-world'), serviceOptions)
+    const deploymentOptions = {}
+    deploymentOptions.serviceDomain = this.answers.domain
+    deploymentOptions.serviceName = this.answers.name
+    deploymentOptions.serviceVersion = '0_0_1'
+    deploymentOptions.name = this.answers.name
+    deploymentOptions.resources = []
+    deploymentOptions.parameters = [{
+      name: `${this.answers.name}-fe`,
+      value: JSON.stringify({logzioToken: ""})
+    }]
+    deploymentOptions.roles = [{name: `${this.answers.name}-fe`}]
+    deploymentOptions.destination = path.resolve(this.options.destination, 'deployments', this.answers.name)
+    this.composeWith(require.resolve('../deployment-basic'), deploymentOptions)
   }
 };

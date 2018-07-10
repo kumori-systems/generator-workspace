@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.0.3
+
+Set `baco` as default stamp in workspace generator.
+Changed `project-hello-world` generator to include a deployment manifest.
+Changed `project-hello-world-v2` generator to include a deployment manifest.
+Minor changes to hello world v2 elements.
+
 ## v1.0.2
 
 Minor and decorative changes to some components code.
