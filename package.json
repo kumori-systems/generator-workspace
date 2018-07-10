@@ -5,7 +5,7 @@
   "author": "Kumori Systems <info@kumori.systems>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kumori-systems/generator-workspace.git"
+    "url": "https://github.com/jbgisbert/generator-workspace.git"
   },
   "license": "MIT",
   "files": [
@@ -16,6 +16,13 @@
   ],
   "main": "generators/app/index.js",
   "dependencies": {
+    "semantic-release-cli": "^4.0.6",
     "yeoman-generator": "^2.0.3"
+  },
+  "devDependencies": {
+    "semantic-release": "^15.6.3"
+  },
+  "release": {
+    "branch": "ticket1261"
   }
 }
