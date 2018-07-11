@@ -1,11 +1,11 @@
 {
   "name": "@kumori/generator-workspace",
-  "version": "1.0.2",
+  "version": "1.0.6",
   "description": "Yeoman generator for Kumori platform",
   "author": "Kumori Systems <info@kumori.systems>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kumori-systems/generator-workspace.git"
+    "url": "https://github.com/jbgisbert/generator-workspace.git"
   },
   "license": "MIT",
   "files": [
@@ -17,5 +17,22 @@
   "main": "generators/app/index.js",
   "dependencies": {
     "yeoman-generator": "^2.0.3"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^2.1.1",
+    "@semantic-release/git": "^6.0.1",
+    "semantic-release": "^15.6.3"
+  },
+  "release": {
+    "noCi": true,
+    "dryRun": false,
+    "branch": "ticket1261",
+    "publish": [
+      "@semantic-release/github"
+    ],
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/git"
+    ]
   }
 }

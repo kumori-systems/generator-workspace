@@ -2,6 +2,8 @@
 
 This is a [yeoman](http://yeoman.io) generator for the [Kumori Platform](https://discover.kumori.cloud).
 
+THIS IS A TEST PATATA
+
 ## Description
 
 The generators included in this module can be directly used from [yeoman](http://yeoman.io) or called as templates from [Kumori CLI](https://github.com/kumori-systems/cli).
