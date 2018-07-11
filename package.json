@@ -1,6 +1,6 @@
 {
   "name": "@kumori/generator-workspace",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "Yeoman generator for Kumori platform",
   "author": "Kumori Systems <info@kumori.systems>",
   "repository": {
@@ -28,6 +28,9 @@
     "branch": "ticket1261",
     "publish": [
       "@semantic-release/github"
+    ],
+    "prepare": [
+      "@semantic-release/changelog"
     ]
   }
 }
