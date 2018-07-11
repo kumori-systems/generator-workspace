@@ -2,7 +2,7 @@
 
 This is a [yeoman](http://yeoman.io) generator for the [Kumori Platform](https://discover.kumori.cloud).
 
-THIS IS A TEST6
+THIS IS A TEST7
 
 ## Description
 
