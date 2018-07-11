@@ -23,6 +23,7 @@
     "semantic-release": "^15.6.3"
   },
   "release": {
-    "branch": "ticket1261"
+    "branch": "ticket1261",
+    "prepare": ["@semantic-release/github"]
   }
 }
