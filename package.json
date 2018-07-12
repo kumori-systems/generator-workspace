@@ -15,7 +15,35 @@
     "yeoman-generator"
   ],
   "main": "generators/app/index.js",
+  "devDependencies": {
+    "@semantic-release/changelog": "^2.1.1",
+    "@semantic-release/git": "^6.0.1",
+    "@semantic-release/github": "^4.4.0",
+    "semantic-release": "^15.7.1"
+  },
   "dependencies": {
     "yeoman-generator": "^2.0.3"
+  },
+  "release": {
+    "noCi": true,
+    "dryRun": true,
+    "branch": "ticket1261",
+    "verifyConditions": [
+      "@semantic-release/github",
+      "@semantic-release/npm"
+    ],
+    "analyzeCommits": {
+      "parserOpts": {
+        "mergePattern": "^Merge branch \\'(.+)\\' into \\'(.+)\\'$"
+      }
+    },
+    "publish": [
+      "@semantic-release/github",
+      "@semantic-release/npm"
+    ],
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/git"
+    ]
   }
 }
