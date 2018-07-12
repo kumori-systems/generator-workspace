@@ -1,5 +1,3 @@
-# Changelog
-
 ## v1.0.3
 
 Set `baco` as default stamp in workspace generator.

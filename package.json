@@ -5,7 +5,7 @@
   "author": "Kumori Systems <info@kumori.systems>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kumori-systems/generator-workspace.git"
+    "url": "https://github.com/jbgisbert/generator-workspace.git"
   },
   "license": "MIT",
   "files": [
@@ -25,8 +25,8 @@
     "yeoman-generator": "^2.0.3"
   },
   "release": {
-    "noCi": true,
-    "dryRun": true,
+    "noCi": false,
+    "dryRun": false,
     "branch": "master",
     "verifyConditions": [
       "@semantic-release/github",
