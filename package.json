@@ -25,8 +25,8 @@
     "yeoman-generator": "^2.0.3"
   },
   "release": {
-    "noCi": true,
-    "dryRun": true,
+    "noCi": false,
+    "dryRun": false,
     "branch": "master",
     "verifyConditions": [
       "@semantic-release/github",

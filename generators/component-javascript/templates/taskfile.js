@@ -50,9 +50,11 @@ const tasks = {
       .source("./Manifest.json")
       .run({ every: true }, dockerImage)
       .shell(`docker run --rm -t --entrypoint=bash -v $PWD:/tmp/component "$file" -c "cd /tmp/component && rm -rf build coverage"`)
-      .source('static/**/*')
-      .target('build/static')
-}
+  }
+
+  , cleandist: function* (task) {
+      yield task.clear('dist')
+    }
 
   , superclean: function* (task) {
     task.parallel(['clean']);
@@ -61,19 +63,15 @@ const tasks = {
       .source("./Manifest.json")
       .run({ every: true }, dockerImage)
       .shell(`docker run --rm -t --entrypoint=bash -v $PWD:/tmp/component "$file" -c "cd /tmp/component && rm -rf node_modules"`)
-      .source('static/**/*')
-      .target('build/static')
   }
 
   , mrproper: function* (task) {
-    task.parallel(['superclean']);
+    task.parallel(['cleandist', 'superclean']);
     yield task.source('./package.json')
       .target('./build')
       .source("./Manifest.json")
       .run({ every: true }, dockerImage)
       .shell(`docker run --rm -t --entrypoint=bash -v $PWD:/tmp/component "$file" -c "cd /tmp/component && rm -rf dist"`)
-      .source('static/**/*')
-      .target('build/static')
   }
 
   , build: function* (task) {
@@ -88,13 +86,13 @@ const tasks = {
       yield task.serial(['build'])
         .source(['build/src/**/*.js'])
         .target('dist')
-      return
+        return
     }
     // We should distinguish the various cases here
 
     let name = getJSON('package.json').name;
 
-    yield task.serial(['installer', 'build'])
+    yield task.serial(['clean', 'cleandist', 'installer', 'build'])
       .source(['build/src/**/*.js'])
       .target(`dist/components/${name}/code/contents`)
       .source('build/node_modules')
