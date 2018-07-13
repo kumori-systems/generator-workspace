@@ -5,7 +5,7 @@
   "author": "Kumori Systems <info@kumori.systems>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jbgisbert/generator-workspace.git"
+    "url": "https://github.com/kumori-systems/generator-workspace.git"
   },
   "license": "MIT",
   "files": [
