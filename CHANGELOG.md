@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/kumori-systems/generator-workspace/compare/v1.0.4...v1.0.5) (2018-07-13)
+
+
+### Bug Fixes
+
+* **changelog:** removed fake fixes in changelog ([bc5add2](https://github.com/kumori-systems/generator-workspace/commit/bc5add2))
+
 ## [1.0.4](https://github.com/kumori-systems/generator-workspace/compare/v1.0.3...v1.0.4) (2018-07-13)
 
 
