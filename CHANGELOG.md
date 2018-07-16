@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/kumori-systems/generator-workspace/compare/v1.0.5...v1.0.6) (2018-07-16)
+
+
+### Bug Fixes
+
+* **package:** added a new semantic release plugin ([913c3cb](https://github.com/kumori-systems/generator-workspace/commit/913c3cb))
+
 ## [1.0.5](https://github.com/kumori-systems/generator-workspace/compare/v1.0.4...v1.0.5) (2018-07-13)
 
 
