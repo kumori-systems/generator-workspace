@@ -12,7 +12,8 @@
     "generators"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "kumori"
   ],
   "main": "generators/app/index.js",
   "devDependencies": {
