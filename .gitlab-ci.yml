@@ -10,4 +10,4 @@ publish:
   image: registry.gitlab.com/ecloud/ci-runners/native:2_0_0
   stage: release
   script:
-    - npx semantic-release
+    - npx semantic-release --debug
