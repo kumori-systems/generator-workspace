@@ -17,6 +17,7 @@
   "main": "generators/app/index.js",
   "devDependencies": {
     "@semantic-release/changelog": "^2.1.1",
+    "@semantic-release/exec": "^2.2.4",
     "@semantic-release/git": "^6.0.1",
     "@semantic-release/github": "^4.4.0",
     "semantic-release": "^15.7.1"
@@ -39,6 +40,10 @@
     },
     "publish": [
       "@semantic-release/github",
+      {
+        "path": "@semantic-release/exec",
+        "cmd": "git push origin master && LAST_VERSION=$( git describe --tags ) && git push origin $LAST_VERSION"
+      },
       "@semantic-release/npm"
     ],
     "prepare": [
