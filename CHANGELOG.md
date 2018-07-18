@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/kumori-systems/generator-workspace/compare/v1.0.7...v1.0.8) (2018-07-18)
+
+
+### Bug Fixes
+
+* **workspace:** removed test folder since is not being currently used ([117be09](https://github.com/kumori-systems/generator-workspace/commit/117be09))
+
 ## [1.0.7](https://github.com/kumori-systems/generator-workspace/compare/v1.0.6...v1.0.7) (2018-07-16)
 
 
