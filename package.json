@@ -3,10 +3,7 @@
   "version": "1.0.6",
   "description": "Yeoman generator for Kumori platform",
   "author": "Kumori Systems <info@kumori.systems>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kumori-systems/generator-workspace.git"
-  },
+  "repository": "github:kumori-systems/generator-workspace",
   "license": "MIT",
   "files": [
     "generators"
@@ -17,42 +14,16 @@
   ],
   "main": "generators/app/index.js",
   "devDependencies": {
-    "@semantic-release/changelog": "^2.1.1",
-    "@semantic-release/exec": "^2.2.4",
-    "@semantic-release/git": "^6.0.1",
-    "@semantic-release/github": "^4.4.0",
-    "semantic-release": "^15.7.1"
+    "semantic-release": "^15.8.0",
+    "semantic-release-shared-config": "gitlab:kumori/semantic-release-shared-config"
   },
   "dependencies": {
     "yeoman-generator": "^2.0.3"
   },
   "release": {
+    "extends": "semantic-release-shared-config",
     "noCi": false,
     "dryRun": false,
-    "branch": "master",
-    "verifyConditions": [
-      "@semantic-release/github",
-      "@semantic-release/npm"
-    ],
-    "analyzeCommits": {
-      "parserOpts": {
-        "mergePattern": "^Merge branch \\'(.+)\\' into \\'(.+)\\'$"
-      }
-    },
-    "publish": [
-      "@semantic-release/github",
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "git push origin master && LAST_VERSION=$( git describe --tags ) && git push origin $LAST_VERSION"
-      },
-      "@semantic-release/npm"
-    ],
-    "prepare": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git"
-    ],
-    "success": false,
-    "fail": false
+    "npmPublish": true
   }
 }
