@@ -1,7 +1,7 @@
-const path       = require('path');
-const http       = require('http-message');
-const express    = require('express');
-const q          = require('q');
+const path = require('path');
+const http = require('@kumori/http-message');
+const express = require('express');
+const q = require('q');
 
 
 // REST API implementation.

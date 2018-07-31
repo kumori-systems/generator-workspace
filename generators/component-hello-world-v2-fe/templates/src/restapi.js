@@ -1,11 +1,11 @@
-const path       = require('path');
-const url        = require('url');
-const http       = require('http-message');
-const express    = require('express');
-const q          = require('q');
-const fs         = require('fs');
-const multer     = require('multer');
-const upload     = multer({dest: 'uploads/'});
+const path = require('path');
+const url = require('url');
+const http = require('@kumori/http-message');
+const express = require('express');
+const q = require('q');
+const fs = require('fs');
+const multer = require('multer');
+const upload = multer({dest: 'uploads/'});
 
 
 // REST API v2 implementation.

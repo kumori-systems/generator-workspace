@@ -1,5 +1,5 @@
-const BaseComponent = require('component');
-const http = require('http-message');
+const BaseComponent = require('@kumori/component').BaseComponent;
+const http = require('@kumori/http-message');
 // go write something interesting
 
 class Component extends BaseComponent {

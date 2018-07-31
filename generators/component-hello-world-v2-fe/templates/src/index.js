@@ -1,7 +1,7 @@
-const q         = require('q');
-const Component = require('component');
-const RestApi   = require('./restapi');
-const winston   = require('winston');
+const q = require('q');
+const BaseComponent = require('@kumori/component').BaseComponent;
+const RestApi = require('./restapi');
+const winston = require('winston');
 const winstonLogzio = require('winston-logzio');
 
 
@@ -10,7 +10,7 @@ const winstonLogzio = require('winston-logzio');
 // Constructor, run, shutdown and configure methods are invoked by Kumori PaaS,
 // managing instance lifecycle.
 
-class Fe extends Component {
+class Fe extends BaseComponent {
 
 
   // Constructor.

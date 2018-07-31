@@ -1,16 +1,15 @@
-const q             = require('q');
-const Component     = require('component');
-const winston       = require('winston');
+const q = require('q');
+const BaseComponent = require('@kumori/component').BaseComponent;
+const winston = require('winston');
 const winstonLogzio = require('winston-logzio');
-// const imageToAscii  = require("image-to-ascii");
-const imageToAscii  = require("asciify-image");
+const imageToAscii = require("asciify-image");
 
 
 // Component implementation.
 //
 // Constructor, run, shutdown and configure methods are invoked by Kumori PaaS,
 // managing instance lifecycle.
-class AsciiConverter extends Component {
+class AsciiConverter extends BaseComponent {
 
 
   // Constructor.

@@ -22,9 +22,9 @@
     "taskr": "^1.1.0"
   },
   "dependencies": {
-    "component": "git+ssh://git@gitlab.com:ECloud/component.git#BACO",
-    "express": "^4.16.2",
-    "http-message": "git+ssh://git@gitlab.com:ECloud/http-message.git#BACO"
+    "@kumori/component": "1.0.2",
+    "@kumori/http-message": "1.0.0",
+    "express": "^4.16.2"
   },
   "engines": {
     "node": ">=4.2.1"
