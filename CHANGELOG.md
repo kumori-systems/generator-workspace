@@ -1,3 +1,10 @@
+## [1.0.9](https://github.com/kumori-systems/generator-workspace/compare/v1.0.8...v1.0.9) (2018-07-31)
+
+
+### Bug Fixes
+
+* **generators:** changed gitlab dependencies to npm packages ([40a5d0d](https://github.com/kumori-systems/generator-workspace/commit/40a5d0d))
+
 ## [1.0.8](https://github.com/kumori-systems/generator-workspace/compare/v1.0.7...v1.0.8) (2018-07-18)
 
 
