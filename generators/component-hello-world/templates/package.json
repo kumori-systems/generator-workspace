@@ -22,12 +22,12 @@
     "taskr": "^1.1.0"
   },
   "dependencies": {
-    "component": "git+ssh://git@gitlab.com:ECloud/component.git#BACO",
+    "@kumori/component": "1.0.2",
+    "@kumori/http-message": "1.0.0",
     "express": "^4.16.2",
     "q": "^1.5.1",
     "winston": "^2.4.2",
-    "winston-logzio": "^1.0.7",
-    "http-message": "git+ssh://git@gitlab.com:ECloud/http-message.git#BACO"
+    "winston-logzio": "^1.0.7"
   },
   "engines": {
     "node": ">=8.9.0"

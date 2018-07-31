@@ -22,8 +22,8 @@
     "taskr": "^1.1.0"
   },
   "dependencies": {
-    "http-message": "git+ssh://git@gitlab.com:ECloud/http-message.git#BACO",
-    "component": "git+ssh://git@gitlab.com:ECloud/component.git#BACO"
+    "@kumori/component": "1.0.2",
+    "@kumori/http-message": "1.0.0"
   },
   "engines": {
     "node": ">=4.2.1"
