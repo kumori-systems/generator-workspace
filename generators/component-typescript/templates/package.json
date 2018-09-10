@@ -1,0 +1,46 @@
+{
+  "name": "<%= name %>",
+  "version": "1.0.0",
+  "description": "<%= name %> component",
+  "main": "lib/index",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "dist": "taskr dist",
+    "lint": "taskr lint",
+    "prespec": "npm run lint",
+    "test": "taskr test",
+    "clean": "taskr clean",
+    "superclean": "taskr superclean",
+    "devinit": "npm install",
+    "postinstall": "rm -rf node_modules/@taskr/jest/node_modules/jest-cli"
+  },
+  "author": "Kumori Systems (info@kumori.systems)",
+  "license": "MIT",
+  "devDependencies": {
+    "@taskr/clear": "^1.1.0",
+    "@taskr/jest": "^1.1.1",
+    "@taskr/shell": "^1.1.0",
+    "@taskr/typescript": "^1.1.0",
+    "jest": "^23.5.0",
+    "jest-cli": "^23.5.0",
+    "jest-environment-node": "^23.4.0",
+    "lint": "^1.1.2",
+    "taskr": "^1.1.0",
+    "ts-jest": "^23.1.4",
+    "tslint": "^5.11.0",
+    "tslint-config-standard": "^7.1.0",
+    "typescript": "^3.0.3"
+  },
+  "dependencies": {
+    "@kumori/component": "1.0.2",
+    "@kumori/http-message": "1.0.0",
+    "@types/node": "10.9.4"
+  },
+  "engines": {
+    "node": ">=4.2.1"
+  },
+  "os": [
+    "linux",
+    "darwin"
+  ]
+}
