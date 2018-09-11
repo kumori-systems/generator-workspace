@@ -45,10 +45,9 @@ As another example, to add a new basic nodejs component to your newly created wo
         create package.json
         create Manifest.json
         create README.rst
-        create config.json
         create jest.config.js
         create taskfile.js
-        create src/index.js
+        create lib/index.js
         create test/sample.jest.js
 
 Or, much more simple, you can use the `kumori` CLI:
@@ -58,10 +57,9 @@ Or, much more simple, you can use the `kumori` CLI:
         create components/kumori.systems/hello/package.json
         create components/kumori.systems/hello/Manifest.json
         create components/kumori.systems/hello/README.rst
-        create components/kumori.systems/hello/config.json
         create components/kumori.systems/hello/jest.config.js
         create components/kumori.systems/hello/taskfile.js
-        create components/kumori.systems/hello/src/index.js
+        create components/kumori.systems/hello/lib/index.js
         create components/kumori.systems/hello/test/sample.jest.js
     Component eslap://kumori.systems/components/hello/0_0_1 created in ./components/kumori.systems/hello
 
@@ -72,10 +70,9 @@ Or, even more simply
         create components/kumori.systems/hello/package.json
         create components/kumori.systems/hello/Manifest.json
         create components/kumori.systems/hello/README.rst
-        create components/kumori.systems/hello/config.json
         create components/kumori.systems/hello/jest.config.js
         create components/kumori.systems/hello/taskfile.js
-        create components/kumori.systems/hello/src/index.js
+        create components/kumori.systems/hello/lib/index.js
         create components/kumori.systems/hello/test/sample.jest.js
     Component eslap://kumori.systems/components/hello/0_0_1 created in ./components/kumori.systems/hello
 
