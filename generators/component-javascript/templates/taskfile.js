@@ -1,6 +1,14 @@
 const vm = require('vm');
 const fs = require('fs');
 const path = require('path');
+const jestoptions = require('./jest.config.js')
+const package = getJSON(path.resolve(process.cwd(), 'package.json'))
+
+let name = package.name;
+let distPath = path.resolve(process.cwd(), 'dist')
+let componentDistPath = path.resolve(distPath,'components', name)
+let componentCodeDistPath = path.resolve(componentDistPath, 'code')
+let componentSourceDistPath = path.resolve(componentCodeDistPath, 'contents')
 
 
 // Gobble up a JSON file with comments
@@ -45,100 +53,68 @@ const tasks = {
   }
 
   , clean: function* (task) {
-    yield task.source('./package.json')
-      .target('./build')
-      .source("./Manifest.json")
-      .run({ every: true }, dockerImage)
-      .shell(`docker run --rm -t --entrypoint=bash -v $PWD:/tmp/component "$file" -c "cd /tmp/component && rm -rf build coverage"`)
+    yield task.clear(['coverage'])
   }
 
   , cleandist: function* (task) {
-      yield task.clear('dist')
-    }
+    yield task.clear('dist')
+  }
 
   , superclean: function* (task) {
-    task.parallel(['clean']);
-    yield task.source('./package.json')
-      .target('./build')
-      .source("./Manifest.json")
-      .run({ every: true }, dockerImage)
-      .shell(`docker run --rm -t --entrypoint=bash -v $PWD:/tmp/component "$file" -c "cd /tmp/component && rm -rf node_modules"`)
+    yield task.parallel(['clean'])
   }
 
   , mrproper: function* (task) {
-    task.parallel(['cleandist', 'superclean']);
-    yield task.source('./package.json')
-      .target('./build')
-      .source("./Manifest.json")
-      .run({ every: true }, dockerImage)
-      .shell(`docker run --rm -t --entrypoint=bash -v $PWD:/tmp/component "$file" -c "cd /tmp/component && rm -rf dist"`)
+    yield task.parallel(['cleandist', 'superclean']);
   }
 
   , build: function* (task) {
-    yield task.source("src/**/*.js")
-      .target("build/src")
   }
 
   , dist: function* (task) {
     if (!fs.existsSync('Manifest.json')) {
-      // A simple module, We just need to build
-      // and move the result to dist
-      yield task.serial(['build'])
-        .source(['build/src/**/*.js'])
-        .target('dist')
-        return
+      return
     }
     // We should distinguish the various cases here
 
     let name = getJSON('package.json').name;
 
     yield task.serial(['clean', 'cleandist', 'installer', 'build'])
-      .source(['build/src/**/*.js'])
-      .target(`dist/components/${name}/code/contents`)
-      .source('build/node_modules')
-      .shell(`cp -r $file dist/components/${name}/code/contents`)
-      .source('build/package.json')
-      .target(`dist/components/${name}/code/contents`)
+      .source(['lib/**/*.js'])
+      .target(path.resolve(componentSourceDistPath, 'lib'))
       .source(['Manifest.json'])
-      .target(`dist/components/${name}`)
+      .target(componentDistPath)
       .source(['Manifest.json'])
       .run({ every: true, files: true }, codeManifest)
-      .target(`dist/components/${name}/code`)
-      .shell('cd ./dist && zip -r bundle.zip components && rm -rf components')
+      .target(componentCodeDistPath)
+      .shell(`cd ${distPath} && zip -r bundle.zip components && rm -rf components`)
   }
 
-  , spec: function* (task) {
-    yield task.source("./test/**/*.jest.js")
-      .shell({
-        cmd: 'jest --coverage $glob',
-        preferLocal: true,
-        glob: true
-      })
+  , test: function* (task) {
+    yield task.serial(['build'])
+        .source("test/**/*.ts")
+        .jest(jestoptions)
   }
 
   , lint: function* (task) {
-    yield task.source('./{src,test}/**/*.js')
-      .shell('node-lint $glob --config config.json')
+    yield task.source(['src/**/*.ts','test/**/*.ts'])
+      .shell({
+        cmd: 'jslint $glob',
+        glob: true
+    })
   }
 
   , installer: function* (task) {
-    yield task.source('./package.json')
-      .target('./build')
-      .source("./Manifest.json")
+
+    let command = `docker run --rm -t --entrypoint=bash -v ${componentSourceDistPath}:/tmp/component "$file" -c "cd /tmp/component && ls -la && npm config set package-lock false && rm -rf ./node_modules && npm install --production && chown -R $(id -u):$(id -g) node_modules"`
+
+    yield task.source(path.resolve(process.cwd(), 'package.json'))
+      .target(componentSourceDistPath)
+      .source(path.resolve(process.cwd(), 'Manifest.json'))
       .run({ every: true }, dockerImage)
-      .shell(`docker run --rm -t --entrypoint=bash -v $PWD:/tmp/component "$file" -c "cd /tmp/component/build && rm -rf ./node_modules && npm install --production"`)
+      .shell(command, {cmd: componentSourceDistPath})
   }
 
-  , devinstall: function* (task) {
-    yield task.source("./Manifest.json")
-      .run({ every: true }, dockerImage)
-      .shell(`docker run --rm -t --entrypoint=bash -v $PWD:/tmp/component "$file" -c "cd /tmp/component && npm install"`)
-  }
-
-  , register: function* (task) {
-      yield task.source('./dist/bundle.zip')
-        .shell('curl -s http://localhost:8090/admission/bundles -F bundlesZip=@$file')
-  }
 }
 
 function loadPlugin(task, plug) {

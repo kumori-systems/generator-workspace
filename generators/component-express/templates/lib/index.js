@@ -23,7 +23,7 @@ class Component extends BaseComponent {
   run () {
     super.run();
     let app = express();
-    app.use(express.static(path.join(__dirname, 'static')));
+    app.use(express.static(path.join(__dirname, '..', 'static')));
     const server = http.createServer(app);
     server.listen(this.httpChannel);
   }

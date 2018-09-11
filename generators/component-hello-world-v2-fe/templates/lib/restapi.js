@@ -78,7 +78,7 @@ class RestApi {
     this.logger.info('RestApi._createExpressApp');
 
     const app = express();
-    let staticPath = path.resolve(__dirname, 'static');
+    let staticPath = path.resolve(__dirname, '..',  'static');
     app.use('/', express.static(staticPath));
 
     app.get('/image', (req, res) => {

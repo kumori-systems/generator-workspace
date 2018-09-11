@@ -2,22 +2,24 @@
   "name": "<%= name %>",
   "version": "1.0.0",
   "description": "<%= name %> component",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "dist": "taskr dist",
     "lint": "taskr lint",
     "prespec": "npm run lint",
-    "spec": "taskr spec ",
+    "test": "taskr test",
     "clean": "taskr clean",
     "superclean": "taskr superclean",
-    "devinit": "rm -f package-lock.json && npm install taskr @taskr/clear @taskr/shell @taskr/jest && taskr devinstall"
+    "devinit": "npm install"
   },
   "author": "Kumori Systems (info@kumori.systems)",
   "license": "MIT",
   "devDependencies": {
+    "@taskr/clear": "^1.1.0",
     "@taskr/jest": "^1.1.1",
     "@taskr/shell": "^1.1.0",
-    "jest": "^20.0.3",
+    "jest": "^23.5.0",
+    "jslint": "0.12.0",
     "lint": "^1.1.2",
     "taskr": "^1.1.0"
   },

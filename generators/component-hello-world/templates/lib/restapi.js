@@ -69,7 +69,7 @@ class RestApi {
 
     const app = express();
 
-    app.use('/', express.static(path.join(__dirname, 'static')));
+    app.use('/', express.static(path.join(__dirname, '..', 'static')));
     app.use('/api/sayhello', (req, res, next) => {
       res.status(200).send('Hello world!');
     });
