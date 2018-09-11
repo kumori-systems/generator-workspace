@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/kumori-systems/generator-workspace/compare/v1.0.9...v1.1.0) (2018-09-11)
+
+
+### Bug Fixes
+
+* **javascript:** taskrfile improved. Templates structure changed. Now the code is in 'lib' folder. ([a0075ff](https://github.com/kumori-systems/generator-workspace/commit/a0075ff))
+
+
+### Features
+
+* **component-typescript:** new generator for components authored in typescript ([ae8dbf9](https://github.com/kumori-systems/generator-workspace/commit/ae8dbf9))
+
 ## [1.0.9](https://github.com/kumori-systems/generator-workspace/compare/v1.0.8...v1.0.9) (2018-07-31)
 
 
