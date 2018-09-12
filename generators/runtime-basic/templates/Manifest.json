@@ -4,7 +4,7 @@
   "derived" : {
     "from" : "<%= parent %>"
   },
-  "agent": "eslap://eslap.cloud/runtime-agent/1_0_0",
+  "agent": "eslap://eslap.cloud/runtime-agent/2_0_0",
   "sourcedir": "<%= componentFolder %>",
   "entrypoint": "<%= entrypoint %>"
 }
