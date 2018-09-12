@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/kumori-systems/generator-workspace/compare/v1.1.0...v1.1.1) (2018-09-12)
+
+
+### Bug Fixes
+
+* **runtime-basic:** now the manifest template declares by default a dependency with eslap://eslap.cloud/runtime-agent/2_0_0 ([27c3b76](https://github.com/kumori-systems/generator-workspace/commit/27c3b76))
+
 # [1.1.0](https://github.com/kumori-systems/generator-workspace/compare/v1.0.9...v1.1.0) (2018-09-11)
 
 
