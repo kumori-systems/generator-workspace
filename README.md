@@ -86,6 +86,7 @@ This module includes the following generators:
 * `@kumori/workspace:component-hello-world-v2-ascii`: generates a component with a simple image to ascii converter.
 * `@kumori/workspace:component-hello-world-fe`: generates a frontend component to access the ascii converter using a REST API and a Single Page Application (SPA).
 * `@kumori/workspace:component-javascript`: generates a basic node.js component.
+* `@kumori/workspace:component-typescript`: generates a basic node.js component authored in TypeScript.
 * `@kumori/workspace:deployment-basic`: generates an empty deployment manifest to deploy an instance of a service.
 * `@kumori/workspace:project-hello-world`: fills the workspace with all the necessary elements to register a simple Hello World service. Internally uses `@kumori/workspace:component-hello-world` and `@kumori/workspace:service-hello-world` generators.
 * `@kumori/workspace:project-hello-world-v2`: fills the workspace with all the necessary elements to register a simple image to ascii converter application. Internally uses `@kumori/workspace:component-hello-world-v2-ascii`, `@kumori/workspace:component-hello-world-v2-fe` and `@kumori/workspace:service-hello-world-v2` generators.
