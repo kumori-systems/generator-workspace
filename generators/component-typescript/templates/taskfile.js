@@ -43,7 +43,7 @@ function* dockerImage(file) {
     , comps = raw.split('/')
     , version = comps.pop();
 
-  comps.push('dev')
+  // comps.push('dev')
   file.base = comps.join('/') + ":" + version
   file.dir = ""
 }
@@ -110,7 +110,7 @@ const tasks = {
 
   , installer: function* (task) {
 
-    let command = `docker run --rm -t --entrypoint=bash -v ${componentSourceDistPath}:/tmp/component "$file" -c "cd /tmp/component && ls -la && npm config set package-lock false && rm -rf ./node_modules && npm install --production && chown -R $(id -u):$(id -g) node_modules"`
+    let command = `docker run --rm -t --entrypoint=bash -v ${componentSourceDistPath}:/tmp/component "$file" -c "cd /tmp/component && npm config set package-lock false && rm -rf ./node_modules && npm install --production && chown -R $(id -u):$(id -g) node_modules"`
 
     yield task.source(path.resolve(process.cwd(), 'package.json'))
       .target(componentSourceDistPath)
