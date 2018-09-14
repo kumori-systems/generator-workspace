@@ -1,4 +1,5 @@
 import {
+  BaseComponent,
   ChannelHash,
   ConfigurationHash,
   Reply,
