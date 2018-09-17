@@ -1,3 +1,11 @@
+## [1.1.2](https://github.com/kumori-systems/generator-workspace/compare/v1.1.1...v1.1.2) (2018-09-17)
+
+
+### Bug Fixes
+
+* **dependency:** bug fix in component-typescript generator template. BaseComponent class was not being imported in index.ts ([42be327](https://github.com/kumori-systems/generator-workspace/commit/42be327))
+* **taskfile:** removed a silly 'ls -la' in 'installer' task ([da8fe08](https://github.com/kumori-systems/generator-workspace/commit/da8fe08))
+
 ## [1.1.1](https://github.com/kumori-systems/generator-workspace/compare/v1.1.0...v1.1.1) (2018-09-12)
 
 
