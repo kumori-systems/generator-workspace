@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/kumori-systems/generator-workspace/compare/v1.1.2...v1.1.3) (2018-10-30)
+
+
+### Bug Fixes
+
+* **java:** added some sample for java services. The sample includes a java component generator, a java sample service generator and a java deployment generator ([1657a8a](https://github.com/kumori-systems/generator-workspace/commit/1657a8a))
+
 ## [1.1.2](https://github.com/kumori-systems/generator-workspace/compare/v1.1.1...v1.1.2) (2018-09-17)
 
 
