@@ -86,19 +86,22 @@ This module includes the following generators:
 * `@kumori/workspace:component-hello-world-v2-ascii`: generates a component with a simple image to ascii converter.
 * `@kumori/workspace:component-hello-world-fe`: generates a frontend component to access the ascii converter using a REST API and a Single Page Application (SPA).
 * `@kumori/workspace:component-hello-world-v3`: generates a frontend component to access the hello world Java component of example _hello-world-v3_.
-* `@kumori/workspace:component-javas`: generates a basic Java component.
+* `@kumori/workspace:component-java`: generates a basic Java component.
+* `@kumori/workspace:component-java-web`: generates a basic Java web application.
 * `@kumori/workspace:component-javascript`: generates a basic node.js component.
 * `@kumori/workspace:component-typescript`: generates a basic node.js component authored in TypeScript.
 * `@kumori/workspace:deployment-basic`: generates an empty deployment manifest to deploy an instance of a service.
 * `@kumori/workspace:project-hello-world`: fills the workspace with all the necessary elements to register a simple Hello World service. Internally uses `@kumori/workspace:component-hello-world` and `@kumori/workspace:service-hello-world` generators.
 * `@kumori/workspace:project-hello-world-v2`: fills the workspace with all the necessary elements to register a simple image to ascii converter application. Internally uses `@kumori/workspace:component-hello-world-v2-ascii`, `@kumori/workspace:component-hello-world-v2-fe` and `@kumori/workspace:service-hello-world-v2` generators.
 * `@kumori/workspace:project-hello-world-v3`: fills the workspace with all the necessary elements to register a simple hello world application using a NodeJS frontend and a Java Hello World component. Internally uses `@kumori/workspace:component-hello-world-v3`, `@kumori/workspace:component-java` and `@kumori/workspace:service-hello-world-v3` generators.
+* `@kumori/workspace:project-hello-world-v4-java-web`: fills the workspace with all the necessary elements to register a simple Java Hello World application as a service. Internally uses `@kumori/workspace:component-java-web` and `@kumori/workspace:service-hello-world-v4-java-web` generators.
 * `@kumori/workspace:resource-vhost`: generates a declaration manifest to register a new domain.
 * `@kumori/workspace:runtime-basic`: generates an empty _Dockerfile_ and manifest to create a new runtime for Kumori components.
 * `@kumori/workspace:service-basic`: generates an empty service topology declaration file.
 * `@kumori/workspace:service-hello-world`: generates a service topology declaration file for the Hello World sample project.
 * `@kumori/workspace:service-hello-world-v2`: generates a service topology declaration file for the Hello World V2 sample project.
 * `@kumori/workspace:service-hello-world-v3`: generates a service topology declaration file for the Hello World V3 sample project.
+* `@kumori/workspace:service-hello-world-v4-java-web`: generates a service topology declaration file for the Hello World V4 sample java web.
 
 ## License
 
