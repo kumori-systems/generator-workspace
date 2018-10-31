@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/kumori-systems/generator-workspace/compare/v1.1.5...v1.1.6) (2018-10-31)
+
+
+### Bug Fixes
+
+* **component-java:** avoiding occasional error when Taskr copy directories ([591f8c6](https://github.com/kumori-systems/generator-workspace/commit/591f8c6))
+
 ## [1.1.5](https://github.com/kumori-systems/generator-workspace/compare/v1.1.4...v1.1.5) (2018-10-31)
 
 
