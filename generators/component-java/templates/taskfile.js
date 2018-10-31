@@ -1,5 +1,5 @@
 const vm = require('vm');
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 const package = getJSON(path.resolve(process.cwd(), 'package.json'))
 
