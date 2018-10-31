@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/kumori-systems/generator-workspace/compare/v1.1.3...v1.1.4) (2018-10-31)
+
+
+### Bug Fixes
+
+* **component-hello-world-v3:** removed unused files ([deca500](https://github.com/kumori-systems/generator-workspace/commit/deca500))
+
 ## [1.1.3](https://github.com/kumori-systems/generator-workspace/compare/v1.1.2...v1.1.3) (2018-10-30)
 
 
