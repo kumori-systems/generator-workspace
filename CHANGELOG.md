@@ -1,3 +1,11 @@
+## [1.1.5](https://github.com/kumori-systems/generator-workspace/compare/v1.1.4...v1.1.5) (2018-10-31)
+
+
+### Bug Fixes
+
+* **component-java:** avoiding occasional error when Taskr copy directories ([e0e40cc](https://github.com/kumori-systems/generator-workspace/commit/e0e40cc))
+* **component-java:** removed unused file jest.config.js ([b2daa9b](https://github.com/kumori-systems/generator-workspace/commit/b2daa9b))
+
 ## [1.1.4](https://github.com/kumori-systems/generator-workspace/compare/v1.1.3...v1.1.4) (2018-10-31)
 
 
