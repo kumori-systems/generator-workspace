@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/kumori-systems/generator-workspace/compare/v1.1.6...v1.1.7) (2018-10-31)
+
+
+### Bug Fixes
+
+* **java-web:** added a java web sample service. This service deploys a java web application as a service ([d45bd03](https://github.com/kumori-systems/generator-workspace/commit/d45bd03))
+
 ## [1.1.6](https://github.com/kumori-systems/generator-workspace/compare/v1.1.5...v1.1.6) (2018-10-31)
 
 
