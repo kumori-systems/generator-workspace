@@ -84,8 +84,6 @@ const tasks = {
     yield task.serial(['clean', 'cleandist', 'installer', 'build'])
       .source(['lib/**/*.js'])
       .target(path.resolve(componentSourceDistPath, 'lib'))
-      .source(['static/**/*'])
-      .target(path.resolve(componentSourceDistPath, 'static'))
       .source(['Manifest.json'])
       .target(componentDistPath)
       .source(['Manifest.json'])
