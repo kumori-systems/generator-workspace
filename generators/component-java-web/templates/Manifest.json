@@ -1,0 +1,24 @@
+{
+  "spec": "http://eslap.cloud/manifest/component/1_0_0",
+  "name": "eslap://<%= domain %>/components/<%= name %>/0_0_1",
+  "code": "<%= name %>-code-blob",
+  "runtime": "eslap://eslap.cloud/runtime/java/2_0_0",
+  "channels": {
+    "requires": [],
+    "provides": [
+      {
+        "name": "entrypoint",
+        "type": "eslap://eslap.cloud/channel/reply/1_0_0",
+        "protocol": "eslap://<%= domain %>/protocol/message/http/1_0_0"
+      }
+    ]
+  },
+  "configuration": {
+    "resources": [ ],
+    "parameters": [ ]
+
+  },
+  "profile": {
+    "threadability": "*"
+  }
+}
