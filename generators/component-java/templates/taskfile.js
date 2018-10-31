@@ -70,6 +70,24 @@ const tasks = {
   , build: function* (task) {
   }
 
+  , build2dist: function* (task) {
+    yield task
+      .run({ every: false, files: false }, function * () {
+        let src = path.resolve(process.cwd(), 'build')
+        let dst = componentSourceDistPath
+        return new Promise((resolve, reject) => {
+          fs.mkdirp(dst)
+          .then(() => { return fs.copy(src, dst) })
+          .then(() => { resolve() })
+          .catch((err) => { reject(err) })
+        })
+      })
+    // Note: This way is simpler... but sometimes fails!
+    // yield task
+    //  .source(['build/**/*'])
+    //  .target(componentSourceDistPath)
+  }
+
   , dist: function* (task) {
     if (!fs.existsSync('Manifest.json')) {
       return
@@ -78,7 +96,7 @@ const tasks = {
 
     let name = getJSON('package.json').name;
 
-    yield task.serial(['clean', 'cleandist', 'installer', 'build'])
+    yield task.serial(['clean', 'cleandist', 'installer', 'build', 'build2dist'])
       .source(['build/**/*'])
       .target(componentSourceDistPath)
       .source(['Manifest.json'])

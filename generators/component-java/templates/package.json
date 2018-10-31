@@ -17,7 +17,8 @@
     "@taskr/clear": "^1.1.0",
     "@taskr/shell": "^1.1.0",
     "lint": "^1.1.2",
-    "taskr": "^1.1.0"
+    "taskr": "^1.1.0",
+    "fs-extra": "7.0.0"
   },
   "dependencies": {},
   "engines": {
