@@ -144,10 +144,10 @@ class Fe extends BaseComponent {
   // Method invoked by Kumori PaaS to modify instance configuration.
   // Not really used in this example.
 
-  reconfig(parameters) {
+  reconfig(resources, parameters) {
     this.logger.info('Fe.reconfig');
 
-    super.reconfig(parameters);
+    super.reconfig(resources, parameters);
   }
 }
 
