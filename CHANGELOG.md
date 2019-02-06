@@ -1,3 +1,10 @@
+## [1.1.8](https://github.com/kumori-systems/generator-workspace/compare/v1.1.7...v1.1.8) (2019-02-06)
+
+
+### Bug Fixes
+
+* **reconfig:** bug fixed. The parameters defined for the 'reconfig' method were not correct ([84e314b](https://github.com/kumori-systems/generator-workspace/commit/84e314b))
+
 ## [1.1.7](https://github.com/kumori-systems/generator-workspace/compare/v1.1.6...v1.1.7) (2018-10-31)
 
 
