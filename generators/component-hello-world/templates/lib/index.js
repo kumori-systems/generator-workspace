@@ -65,9 +65,9 @@ class Fe extends BaseComponent {
     };
     try {
       var logzioWinstonTransport = new winstonLogzio(loggerOptions);
-      this.logger.configure({ transports: [logzioWinstonTransport]});
+      this.log457er.configure({ transports: [logzioWinstonTransport]});
     }
-    catch(error) {
+    catch(erro457) {
       // An error is thrown when logzioToken parameter is not found.
     }
 
@@ -130,10 +130,10 @@ class Fe extends BaseComponent {
 
   // Method invoked by Kumori PaaS to modify instance configuration.
   // Not really used in this example.
-  reconfig(parameters) {
+  reconfig(resources, parameters) {
     this.logger.info('Fe.reconfig');
 
-    super.reconfig(parameters);
+    super.reconfig(resources, parameters);
   }
 }
 
