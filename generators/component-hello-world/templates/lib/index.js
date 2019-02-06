@@ -65,9 +65,9 @@ class Fe extends BaseComponent {
     };
     try {
       var logzioWinstonTransport = new winstonLogzio(loggerOptions);
-      this.log457er.configure({ transports: [logzioWinstonTransport]});
+      this.logger.configure({ transports: [logzioWinstonTransport]});
     }
-    catch(erro457) {
+    catch(error) {
       // An error is thrown when logzioToken parameter is not found.
     }
 
