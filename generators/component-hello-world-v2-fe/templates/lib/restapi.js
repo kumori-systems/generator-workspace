@@ -132,13 +132,16 @@ class RestApi {
       const message = new Buffer(data)
       this.asciiclientChannel.sendRequest([message])
       .then((data) => {
+        fs.unlink(filepath)
         let converted = data[0][1].toString();
         this._reply(converted, res)
       })
       .fail((error) => {
+        fs.unlink(filepath)
         this._error(error, res)
       })
     } catch(error) {
+      fs.unlink(filepath)
       this._error(error, res)
     }
 
