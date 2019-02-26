@@ -123,33 +123,31 @@ class RestApi {
   //  .fail (err) -> ...
   _processRequest(filepath, req, res, removeFile) {
     try {
-      const query = url.parse(req.url, true).query;
-      const key = query != null ? query.key : undefined;
-
       this.logger.info(`RestApi._convert file=${filepath}`);
 
-      let data = fs.readFileSync(filepath)
-      const message = new Buffer(data)
+      let data = fs.readFileSync(filepath);
+      const message = new Buffer(data);
       this.asciiclientChannel.sendRequest([message])
       .then((data) => {
-        if (removeFile) { fs.unlink(filepath) }
-        let converted = data[0][1].toString();
-        this._reply(converted, res)
+        if (removeFile) { fs.unlink(filepath); }
+        let header = JSON.parse(data[0][1].toString());
+        let converted = data[0][2].toString();
+        this._reply(header, converted, res);
       })
       .fail((error) => {
-        if (removeFile) { fs.unlink(filepath) }
-        this._error(error, res)
+        if (removeFile) { fs.unlink(filepath); }
+        this._error(error, res);
       })
     } catch(error) {
-      if (removeFile) { fs.unlink(filepath) }
-      this._error(error, res)
+      if (removeFile) { fs.unlink(filepath); }
+      this._error(error, res);
     }
 
   }
 
-  _reply(data, res) {
-    res.send(`<h1>ASCIIART FROM ${this.id}</h1><code><pre>\n${data}\n</pre></code>`);
-    res.end()
+  _reply(header, data, res) {
+    res.send(`<h1>ASCIIART WORKER ${header.iid}</h1><code><pre>\n${data}\n</pre></code>`);
+    res.end();
   }
 
   _error(error, res) {

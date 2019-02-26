@@ -144,9 +144,14 @@ class AsciiConverter extends BaseComponent {
         imageToAscii(message[0], {color: false, width: 200, height: 100, fit: 'box'}, (err, converted) => {
           if (err) {
             this.logger.warn(`AsciiConverter._handleRequest ${err.message || err}`);
-            reject(err)
+            reject(err);
           } else {
-            resolve([[new Buffer(converted)]])
+            let header = new Buffer(JSON.stringify({
+              iid: this.iid,
+              role: this.role,
+              incnum: this.incnum
+            }));
+            resolve([[header, new Buffer(converted)]]);
           }
         })
       } catch (err) {
