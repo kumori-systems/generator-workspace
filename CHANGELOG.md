@@ -1,3 +1,10 @@
+## [1.1.9](https://github.com/kumori-systems/generator-workspace/compare/v1.1.8...v1.1.9) (2019-02-15)
+
+
+### Bug Fixes
+
+* **helloworldv2:** improved the restapi to remove processed images after converting them to ascii ([915f741](https://github.com/kumori-systems/generator-workspace/commit/915f741))
+
 ## [1.1.8](https://github.com/kumori-systems/generator-workspace/compare/v1.1.7...v1.1.8) (2019-02-06)
 
 
