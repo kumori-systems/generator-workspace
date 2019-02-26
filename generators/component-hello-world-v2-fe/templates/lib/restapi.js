@@ -84,11 +84,11 @@ class RestApi {
     app.get('/image', (req, res) => {
       const query = url.parse(req.url, true).query;
       const filename = query != null ? query.filename : undefined;
-      this._processRequest(path.resolve(staticPath,'images',filename), req, res)
+      this._processRequest(path.resolve(staticPath,'images',filename), req, res, false)
     })
 
     app.post('/image', upload.single('image'), (req, res) => {
-      this._processRequest(req.file.path, req, res)
+      this._processRequest(req.file.path, req, res, true)
     })
 
     // app.use((req, res, next) => {
@@ -121,7 +121,7 @@ class RestApi {
   //    // result: { message: [value1, value2, value3],
   //    //            dynamicChannels: [dynChannel1, dynChannel2] }
   //  .fail (err) -> ...
-  _processRequest(filepath, req, res) {
+  _processRequest(filepath, req, res, removeFile) {
     try {
       const query = url.parse(req.url, true).query;
       const key = query != null ? query.key : undefined;
@@ -132,16 +132,16 @@ class RestApi {
       const message = new Buffer(data)
       this.asciiclientChannel.sendRequest([message])
       .then((data) => {
-        fs.unlink(filepath)
+        if (removeFile) { fs.unlink(filepath) }
         let converted = data[0][1].toString();
         this._reply(converted, res)
       })
       .fail((error) => {
-        fs.unlink(filepath)
+        if (removeFile) { fs.unlink(filepath) }
         this._error(error, res)
       })
     } catch(error) {
-      fs.unlink(filepath)
+      if (removeFile) { fs.unlink(filepath) }
       this._error(error, res)
     }
 
