@@ -1,3 +1,10 @@
+## [1.1.10](https://github.com/kumori-systems/generator-workspace/compare/v1.1.9...v1.1.10) (2019-02-26)
+
+
+### Bug Fixes
+
+* **helloworld2-fe:** now image files are removed in this component only when the image has been provided by the user ([4e4ca5b](https://github.com/kumori-systems/generator-workspace/commit/4e4ca5b))
+
 ## [1.1.9](https://github.com/kumori-systems/generator-workspace/compare/v1.1.8...v1.1.9) (2019-02-15)
 
 
