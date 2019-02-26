@@ -1,3 +1,10 @@
+## [1.1.11](https://github.com/kumori-systems/generator-workspace/compare/v1.1.10...v1.1.11) (2019-02-26)
+
+
+### Bug Fixes
+
+* **workers:** now the id of the worker is shown in the webpage ([02cf5fd](https://github.com/kumori-systems/generator-workspace/commit/02cf5fd))
+
 ## [1.1.10](https://github.com/kumori-systems/generator-workspace/compare/v1.1.9...v1.1.10) (2019-02-26)
 
 
